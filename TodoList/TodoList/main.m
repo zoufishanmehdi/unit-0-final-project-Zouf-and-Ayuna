@@ -10,6 +10,19 @@
 //********************** INTERFACE TO DO APP *********
 @interface ToDoApp : NSObject
 
+-(void)displayLists:(NSArray*)displayLists;
+-(NSArray *)displayLists;
+
+-(void)addList:(NSArray*)addList;
+-(NSArray *)addList;
+
+-(void)removeList:(NSArray*)removeList;
+-(NSArray *)removeList;
+
+-(void)renameList:(NSArray*)renameList;
+-(NSArray *)renameList;
+
+
 @end
 
 //***********************  INTERFACE TODO LIST ******
@@ -36,22 +49,59 @@
 -(void)setItemName:(NSString *)itemName;
 -(NSString *)itemName;
 
--(int)setPriority:(int)priority;
+-(void)setPriority:(int)priority;
+-(int *)priority;
 
 @end
 
 
 //*************** IMPLEM TO DO APP ***************
-//@implementation
-//@end
+@implementation ToDoApp {
+    NSMutableArray *_allLists;
+}
+
+-(void)displayLists:(NSArray*)displayLists {
+    for(ToDoApp *something in _allLists) {
+        printf("%s\n", [[something description] UTF8String]);
+    }
+}
+//-(NSArray *)displayLists {
+//    return _displayLists;
+//}
+
+-(void)addList:(NSArray*)addList {
+    
+}
+-(NSArray *)addList {
+    
+}
+
+-(void)removeList:(NSArray*)removeList {
+    
+}
+-(NSArray *)removeList {
+    
+}
+
+-(void)renameList:(NSArray*)renameList {
+    
+}
+
+-(NSArray *)renameList {
+    
+}
+
+
+@end
 
 
 
 //*************** IMPLEM TO DO LIST ***************
 @implementation ToDoList {
-    NSString *_name;
+    NSString *_listName;
     NSMutableArray *_listOfItems;
 }
+
 @end
 
 
@@ -61,12 +111,27 @@
     NSString *_itemName;
     NSInteger priority;
 }
+
+
+-(void)setItemName:(NSString *)itemName {
+    _itemName = itemName;
+}
+-(NSString *)itemName;
+
+-(void)setPriority:(int)priority {
+    _priority = priority;
+    
+}
+-(int *)priority;
+
 @end
 
 
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
+        
+        
         
     }
     return 0;
