@@ -6,6 +6,8 @@
 //  Copyright (c) 2015 Mike Kavouras. All rights reserved.
 //
 
+//I'll just type this to practice, Zouf, you have to delete it later to practice, too! :) '
+
 #import <Foundation/Foundation.h>
 //********************** INTERFACE TO DO APP *********
 @interface ToDoApp : NSObject
