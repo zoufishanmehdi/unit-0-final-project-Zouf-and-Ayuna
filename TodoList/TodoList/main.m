@@ -10,16 +10,16 @@
 //********************** INTERFACE TO DO APP *********
 @interface ToDoApp : NSObject
 
--(void)displayLists:(NSArray*)displayLists;
+-(void)displayLists:(NSMutableArray*)displayLists;
 -(NSArray *)displayLists;
 
--(void)addList:(NSArray*)addList;
+-(void)addList:(NSMutableArray*)addList;
 -(NSArray *)addList;
 
--(void)removeList:(NSArray*)removeList;
+-(void)removeList:(NSMutableArray*)removeList;
 -(NSArray *)removeList;
 
--(void)renameList:(NSArray*)renameList;
+-(void)renameList:(NSMutableArray*)renameList;
 -(NSArray *)renameList;
 
 
@@ -28,18 +28,18 @@
 //***********************  INTERFACE TODO LIST ******
 @interface ToDoList : NSObject
 
--(void)displayItems:(NSArray*)displayItems;
+-(void)displayItems:(NSMutableArray*)displayItems;
 
--(void)addItem:(NSArray*)add;
+-(void)addItem:(NSMutableArray*)add;
 -(NSArray *)add;
 
--(void)removeItem:(NSArray*)remove;
+-(void)removeItem:(NSMutableArray*)remove;
 -(NSArray *)remove;
 
--(void)markItem:(NSArray*)mark;
+-(void)markItem:(NSMutableArray*)mark;
 -(NSArray *)mark;
 
--(void)listCompletedItems;
+-(void)listCompletedItems:(NSMutableArray*)listCompletedItems;
 
 @end
 
@@ -60,36 +60,36 @@
     NSMutableArray *_allLists;
 }
 
--(void)displayLists:(NSArray*)displayLists {
+-(void)displayLists:(NSMutableArray*)displayLists {
     for(ToDoApp *something in _allLists) {
         printf("%s\n", [[something description] UTF8String]);
     }
 }
-//-(NSArray *)displayLists {
+//-(NSMutableArray *)displayLists {
 //    return _displayLists;
 //}
 
--(void)addList:(NSArray*)addList {
-    
-}
--(NSArray *)addList {
-    
-}
-
--(void)removeList:(NSArray*)removeList {
-    
-}
--(NSArray *)removeList {
-    
-}
-
--(void)renameList:(NSArray*)renameList {
-    
-}
-
--(NSArray *)renameList {
-    
-}
+//-(void)addList:(NSMutableArray*)addList {
+//    
+//}
+//-(NSMutableArray *)addList {
+//    
+//}
+//
+//-(void)removeList:(NSMutableArray*)removeList {
+//    
+//}
+//-(NSMutableArray *)removeList {
+//    
+//}
+//
+//-(void)renameList:(NSMutableArray*)renameList {
+//    
+//}
+//
+//-(NSMutableArray *)renameList {
+//    
+//}
 
 
 @end
@@ -101,6 +101,26 @@
     NSString *_listName;
     NSMutableArray *_listOfItems;
 }
+-(void)displayItems:(NSMutableArray*)displayItems {
+    for(ToDoList *listOfItems in _listOfItems) {
+        printf("%s\n", [[listOfItems description] UTF8String]);
+    }
+}
+-(void)listCompletedItems:(NSMutableArray*)listCompletedItems {
+        for(ToDoList *listOfCompletedItems in _listOfItems) {
+            printf("%s\n", [[listCompletedItems description] UTF8String]);
+        }
+}
+-(void)addItem:(NSArray*)add {
+    
+}
+-(NSArray *)add;
+
+-(void)removeItem:(NSArray*)remove;
+-(NSArray *)remove;
+
+-(void)markItem:(NSArray*)mark;
+-(NSArray *)mark;
 
 @end
 
@@ -109,27 +129,32 @@
 //*************** IMPLEM TO DO ITEM ***************
 @implementation ToDoItem {
     NSString *_itemName;
-    NSInteger priority;
+    NSInteger *_priority;
 }
-
 
 -(void)setItemName:(NSString *)itemName {
     _itemName = itemName;
+    NSLog(@"%@", itemName);
 }
--(NSString *)itemName;
+-(NSString *)itemName {
+    return _itemName;
+}
 
--(void)setPriority:(int)priority {
+-(void)setPriority:(int) priority {
     _priority = priority;
-    
 }
--(int *)priority;
+-(int *)priority {
+    return _priority;
+}
 
 @end
 
 
-
+//***************** MAIN FUNCTION ***********************
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
+        ToDoItem *homework = [[ToDoItem alloc] init];
+        [homework setItemName:@"Study Git branching"];
         
         
         
