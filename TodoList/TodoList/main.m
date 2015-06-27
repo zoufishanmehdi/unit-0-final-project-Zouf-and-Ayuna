@@ -32,14 +32,13 @@
 
 -(void)displayItems:(NSMutableArray*)displayItems;
 
--(void)addItem:(NSMutableArray*)add;
--(NSArray *)add;
+-(NSString*)addItem:(NSString*)newItemName;
 
--(void)removeItem:(NSMutableArray*)remove;
--(NSArray *)remove;
+-(void)removeItem:(NSString*)remove;
+-(NSString *)remove;
 
--(void)markItem:(NSMutableArray*)mark;
--(NSArray *)mark;
+-(void)markItem:(NSString*)mark;
+-(NSString *)mark;
 
 -(void)listCompletedItems:(NSMutableArray*)listCompletedItems;
 
@@ -113,16 +112,18 @@
             printf("%s\n", [[listCompletedItems description] UTF8String]);
         }
 }
--(void)addItem:(NSArray*)add {
-    
+-(NSString*)addItem:(NSString*)newItemName {
+    ToDoItem *newItem = [[ToDoItem alloc]init];
+    [newItem setItemName:newItemName];
+    [_listOfItems addObject:newItemName];
+    return newItemName;
 }
--(NSArray *)add;
 
--(void)removeItem:(NSArray*)remove;
--(NSArray *)remove;
+-(void)removeItem:(NSString*)remove;
+-(NSString *)remove;
 
--(void)markItem:(NSArray*)mark;
--(NSArray *)mark;
+-(void)markItem:(NSString*)mark;
+-(NSString *)mark;
 
 @end
 
