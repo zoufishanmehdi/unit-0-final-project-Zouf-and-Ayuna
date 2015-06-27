@@ -2,7 +2,7 @@
 //  main.m
 //  TodoList
 //
-//  Created by Michael Kavouras on 6/25/15.
+//  Created by Ayuna Vogel 🇷🇺🇺🇸 {{ in 💛 with 🚕 city }} on 6/25/15.
 //  Copyright (c) 2015 Mike Kavouras. All rights reserved.
 //
 
