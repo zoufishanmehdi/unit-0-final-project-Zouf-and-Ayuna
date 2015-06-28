@@ -6,9 +6,12 @@
 //  Copyright (c) 2015 Mike Kavouras. All rights reserved.
 //
 
-//I'll just type this to practice, Zouf, you have to delete it later to practice, too! :) '
-
 #import <Foundation/Foundation.h>
+
+@class ToDoApp;
+@class ToDoList;
+@class ToDoItem;
+
 //********************** INTERFACE TO DO APP *********
 @interface ToDoApp : NSObject
 
@@ -34,15 +37,15 @@
 
 -(NSString*)addItem:(NSString*)newItemName;
 
--(void)removeItem:(NSString*)remove;
--(NSString *)remove;
-
--(void)markItem:(NSString*)mark;
--(NSString *)mark;
-
--(void)listCompletedItems:(NSMutableArray*)listCompletedItems;
-
-@end
+//-(void)removeItem:(NSString*)remove;
+//-(NSString *)remove;
+//
+//-(void)markItem:(NSString*)mark;
+//-(NSString *)mark;
+//
+//-(void)listCompletedItems:(NSMutableArray*)listCompletedItems;
+//
+//@end
 
 //************************INTERFACE TODO ITEM
 @interface ToDoItem : NSObject
@@ -57,14 +60,14 @@
 
 
 //*************** IMPLEM TO DO APP ***************
-@implementation ToDoApp {
-    NSMutableArray *_allLists;
-}
-
--(void)displayLists:(NSMutableArray*)displayLists {
-    for(ToDoApp *something in _allLists) {
-        printf("%s\n", [[something description] UTF8String]);
-    }
+//@implementation ToDoApp {
+//    NSMutableArray *_allLists;
+//}
+//
+//-(void)displayLists:(NSMutableArray*)displayLists {
+//    for(ToDoApp *something in _allLists) {
+//        printf("%s\n", [[something description] UTF8String]);
+//    }
 }
 //-(NSMutableArray *)displayLists {
 //    return _displayLists;
@@ -113,17 +116,27 @@
         }
 }
 -(NSString*)addItem:(NSString*)newItemName {
-    ToDoItem *newItem = [[ToDoItem alloc]init];
-    [newItem setItemName:newItemName];
-    [_listOfItems addObject:newItemName];
-    return newItemName;
+    scanf("%s", &newItemName);
+    
+//
+//    ToDoItem *newItem = [[ToDoItem alloc]init];
+//    [newItem setItemName:newItemName];
+//    [_listOfItems addObject:newItemName];
+//    return newItemName;
 }
 
--(void)removeItem:(NSString*)remove;
--(NSString *)remove;
+-(void)renameList:(NSString*) name{
+    _listName = name;
+}
 
--(void)markItem:(NSString*)mark;
--(NSString *)mark;
+
+-(void)removeItem:(NSString*)remove;
+//-(NSString *)remove;
+
+//-(void)markItem:(NSString*)mark {
+////-(NSString *)mark;
+//}
+
 
 @end
 
@@ -157,9 +170,69 @@
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         ToDoItem *homework = [[ToDoItem alloc] init];
+        ToDoList *list1 = [[ToDoList alloc] init];
+        
         [homework setItemName:@"Study Git branching"];
         
+        int createListYesNo;
+        printf("Would you like to create a to-do list? \n 0)No 1)Yes \n");
+        scanf("%d", &createListYesNo);
         
+        if (createListYesNo == 0) {
+            return 0;
+        } else {
+            NSString *listName;
+            printf("Enter a name for your to-do list \n");
+            scanf("%s", &listName);
+            [list1 renameList:listName];
+            
+        }
+        
+        
+        
+        
+        
+//        
+//        int enterOrRun;
+//        printf("Will I beat superman?, \n 0) I'm ready to defeat superman \n 1) I would rather for my life while I can \n");
+//        scanf("%d", &enterOrRun);
+//        
+//        //Enter the fork in the road: Batman & Kryptonite
+//        
+//        if (enterOrRun == 0) {
+//            int batmanVsKryptonite;
+//            printf("Which path do you choose: Goddamned Batman or Kryptonite? \n 0)Batman, here we go! \n 1) Batwhat? I will go with Kryptonite \n");
+//            scanf("%d", &batmanVsKryptonite);
+//            //You choose Batman
+//            if (batmanVsKryptonite == 0) {
+//                int batOrNot;
+//                printf("Am I the Goddamned Batman? \n 0)Why yes! I also have batwings \n 1) Definitely not! Can I pretend though? \n");
+//                scanf("%d", &batOrNot);
+//                //You are batman
+//                if ((batOrNot == 0) && batwings){
+//                    printf("Maybe, once. On a good day.");
+//                    //You are not batman
+//                } else {
+//                    printf("No. You lose HORRIBLY!");
+//                }
+//        
+        
+        //Arrays
+//        NSMutableArray *myArray = [[NSMutableArray alloc] init];
+//        NSArray *array = [[[NSArray alloc]] initWithObjects:@"one",
+//                          @"two", nil];
+        
+        // Person *person = [[Person alloc] init];
+//        [myArray addObject:[person name]];
+//        [[myArray firstObject] danceInTheRain];
+//
+//        
+//        [myArray addObject:@"mike"];
+//        NSString *name = @"mike";
+//        [name length];
+//        
+//        NSString *myName = [myArray firstObject];
+//        [myName length];
         
     }
     return 0;
