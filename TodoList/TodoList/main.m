@@ -15,12 +15,6 @@
 @class List;
 @class Item;
 
-//************************************** INTERFACE ITEM ********
-//************************************** IMPLEM ITEM ********
-//************************************** INTERFACE LIST ********
-//************************************** IMPLEM LIST ********
-//************************ INTERFACE LIST MANAGER ********
-//************************************** IMPLEM LIST MANAGER ********
 // ************ *********** ****** >>> MAIN FUNCTION <<< ********* ******** **********
 
 int main(int argc, const char * argv[]) {
@@ -67,32 +61,18 @@ int main(int argc, const char * argv[]) {
         [allLists addListToListManager: groceryList];
         [allLists addListToListManager:homeworkToDoList];
         
+        //[groceryList deleteItemFromList:firstTask];
+        //[groceryList printAllItemsInList];
+        //[groceryList markItemDone:secondTask];
+        //[groceryList printAllItemsInList];
+        //[groceryList listOptions];
+        
+        
         NSLog(@"Welcome to your to-do list app! Let's get you started:\n");
         [allLists listManagerMenuOptions]; //prints List Manager options menu
 
         
         
-        
-        //[groceryList deleteItemFromList:firstTask];
-        //[groceryList printAllItemsInList];
-        //[groceryList markItemDone:secondTask];
-//        [groceryList printAllItemsInList];
-
-        
-        
-        
-        //[groceryList listOptions];
-        
-        
-        
-        
-        
-        
-        
-    
-        
-        // added comment to update my new branch on github
-    
     }
     return 0;
 }

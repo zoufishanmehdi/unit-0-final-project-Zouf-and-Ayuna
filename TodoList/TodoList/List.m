@@ -7,6 +7,8 @@
 //
 
 #import "List.h"
+@class ListManager;
+@class List;
 
 @implementation List {
     NSString* _listName;
@@ -81,13 +83,26 @@
     [[_itemsInList objectAtIndex:j-1] setItem:editedTaskName];
 }
 
+-(void) goBackToLists {
+    //if (_lists == nil) {
+        //allocate new object of ListManager
+   // }
+ //[[_lists objectAtIndex: i] listManagerMenuOptions];
+    //    int j;
+//    scanf("%d", &j);
+//    for (int i = 0; i < [_lists count]; i++) {
+//        if (j == 8) {
+//            [[_lists objectAtIndex:i] listManagerMenuOptions];
+//        }
+//    }
+}
+
 -(void) addListDescription {
     NSLog(@"Enter list description: ");
     char listDescriptionInput[256];
     fgets(listDescriptionInput, 256, stdin);
-    // NSLog(@"item added: %s", name); // we test our work above here
-    NSString *listDescription = [NSString stringWithUTF8String:listDescriptionInput]; //stringWithUTF8String converts char to string
-    //    NSLog(@"string test: %@", item1);
+    NSString *listDescription = [NSString stringWithUTF8String:listDescriptionInput];
+    //stringWithUTF8String converts char to string
     [self setListName:listDescription];
 }
 
@@ -120,9 +135,6 @@
         else if (i == 4) {
             //delete item
             [self printAllItemsInList];
-//            NSLog(@"Enter an item number to delete it");
-//            int i;
-//            scanf("%d", &i);
             [self deleteItemFromList];
             NSLog(@"Deleted");
         }
@@ -142,7 +154,7 @@
             [self printAllItemsInList];
         }
         else if (i == 8) {
-            
+            [self goBackToLists];
         }
         else if (i == 0) {
             NSLog(@"It was good to see you! Bye!");

@@ -25,5 +25,6 @@
 -(void) markItemDone: (Item *) task;
 -(void) renameItem;
 -(void) listOptions;
+-(void) goBackToLists;
 -(void) addListDescription;
 @end
