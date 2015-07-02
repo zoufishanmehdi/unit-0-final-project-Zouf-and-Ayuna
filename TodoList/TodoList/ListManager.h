@@ -19,7 +19,7 @@
 -(NSMutableArray*) getLists;
 -(void) addListToListManager: (List*) list;
 -(void) renameList; 
--(void) deleteListFromListManager: (int) j;
+-(void) deleteListFromListManager;
 -(void) printLists;
 -(void) listManagerMenuOptions;
 @end

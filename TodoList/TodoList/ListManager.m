@@ -26,35 +26,41 @@
 }
 
 -(void) renameList {
-    [self printLists];
-    NSLog(@"Enter a number to pick a list");
+//    [self printLists];
+//    NSLog(@"Enter a number to pick a list");
     int j;
     scanf("%d", &j);
-    NSString *oldListName = [[_lists objectAtIndex:j-1] listName];
-    NSLog(@"Enter list description");
-    char newUserListName[256];
-    fgets(newUserListName, 256, stdin);
-    NSString *editedListName = [NSString stringWithUTF8String:newUserListName];
-    oldListName = editedListName;
-    [_lists replaceObjectAtIndex:j-1 withObject:editedListName];
+    fpurge(stdin);
+    for (int i = 0; i < [_lists count]; i++) {
+        if (i == j-1) {
+            NSLog(@"Enter new list description");
+            char newUserListName[256];
+            fgets(newUserListName, 256, stdin);
+            NSString *editedListName = [NSString stringWithUTF8String:newUserListName];
+            [[_lists objectAtIndex:j-1] setListName:editedListName];
+        }
+    }
 }
 
--(void) deleteListFromListManager: (int) j {
-            [_lists removeObjectAtIndex:j-1];
+-(void) deleteListFromListManager {
+    int j;
+    scanf("%d", &j);
+    [_lists removeObjectAtIndex:j-1];
 }
+
 -(void)printLists {
     for (int i = 0; i < [_lists count]; i++) {
         NSString *listName = [[_lists objectAtIndex:i] listName];
         NSLog(@"%i) %@", i+1, listName);
     }
-    NSLog(@"Enter a number to pick your to-do list");
-    int j;
-    scanf("%d", &j);
-    for (int i = 0; i < [_lists count]; i++) {
-        if (i == j -1 ) {
-            [[_lists objectAtIndex:i] listOptions];
-        }
-    }
+    NSLog(@"Enter a number to pick a list");
+//    int j;
+//    scanf("%d", &j);
+//    for (int i = 0; i < [_lists count]; i++) {
+//        if (i == j -1 ) {
+//            [[_lists objectAtIndex:i] listOptions];
+//        }
+//    }
 }
 
 -(void) listManagerMenuOptions { 
@@ -81,20 +87,13 @@
         else if (userInputInteger == 3) {
             [self printLists];
             NSLog(@"Enter a number to pick a list");
-            int j;
-            scanf("%d", &j);
-            fpurge(stdin);
-            NSLog(@"Enter new list description");
-            char newUserListName[256];
-            fgets(newUserListName, 256, stdin);
-            NSString *editedListName = [NSString stringWithUTF8String:newUserListName];
-            [[_lists objectAtIndex:j-1] setListName:editedListName];
+            [self renameList];
+            break; 
         }
         else if (userInputInteger == 4) {
+            // delete a to-do list
             [self printLists];
-            int j;
-            scanf("%d", &j);
-            [self deleteListFromListManager:j];
+            [self deleteListFromListManager];
             NSLog(@"Deleted");
         }
         else if (userInputInteger == 0) {
@@ -108,10 +107,5 @@
     }
 }
 
-//-(void)sortList {
-//    _lists = [_lists sortUsingComparator:^NSComparisonResult(NSString *str1, NSString *str2) {
-//        
-//    }];
-//}
 @end
 
