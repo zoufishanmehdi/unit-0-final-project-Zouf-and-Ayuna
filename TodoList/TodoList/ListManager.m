@@ -22,13 +22,7 @@
 }
 
 -(void) addListToListManager: (List*) list {
-    //NSLog(@"Enter a name for your new to-do list"); //commenting it out for now, but it will be in the loop method later
     [_lists addObject:list];
-    
-
-    //scanf for user input string name for the new to-do list
-    //[list setListName: user input string for the new to do list name];
-    //should list options for that list - home menu list options (display all tasks, add task, etc.
 }
 
 -(void) renameList {
@@ -78,10 +72,6 @@
             break;
         }
         else if (userInputInteger == 2) {
-// this next lines of code might not be necessary
-//            if ([_lists count] == 0) {
-//                ListManager *newList = [[ListManager alloc]init];
-//            }
             List *newToDoList = [[List alloc]init];
             [newToDoList addListDescription];
             [newToDoList itemsInList];

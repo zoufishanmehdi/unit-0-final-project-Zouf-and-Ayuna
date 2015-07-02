@@ -109,23 +109,28 @@
     BOOL runListOptionsMenu = true;
     while (runListOptionsMenu) {
         
-        NSArray *listOptions = [[NSArray alloc] initWithObjects:@"1 - Display all tasks", @"2 - Add new task", @"3 - Edit task", @"4 - Delete task", @"5 - Mark task done", @"6 - List all active tasks", @"7 - List completed tasks", @"0 - Quit",  nil];
+        NSArray *listOptions = [[NSArray alloc] initWithObjects:@"1 - Display all tasks", @"2 - Add new task", @"3 - Edit task", @"4 - Delete task", @"5 - Mark task done", @"6 - List all active tasks", @"7 - List completed tasks", @"8 - Go back to Lists", @"0 - Quit",  nil];
         
         NSLog(@"%@", listOptions);
         scanf("%d", &i);
         fpurge(stdin);
         
         if (i == 1) {
+            //display all items in the selected list
             [self printAllItemsInList];
         }
         else if (i == 2) {
             //add new item
-            //[self addItemToList:<#(Item *)#>:i];
+            NSLog(@"Enter task description: ");
+            Item *newToDoItem = [[Item alloc]init];
+            [newToDoItem addItemDescription];
+            [newToDoItem itemName];
+            [self addItemToList:newToDoItem];
         }
         else if (i == 3) {
             //rename item
             [self printAllItemsInList];
-            NSLog(@"Enter an item number to rename it");
+            NSLog(@"Enter a number to edit task");
             int i;
             scanf("%d", &i);
             [self editItemName];
@@ -154,8 +159,12 @@
             //print all items in list, versions: either excluding marked done items, or print all incl marked done items with a check sign
             [self printAllItemsInList];
         }
+        else if (i == 8) {
+            
+        }
         else if (i == 0) {
             NSLog(@"It was good to see you! Bye!");
+            break; 
         }
         else {
             NSLog(@"Bummer! Try again?");
