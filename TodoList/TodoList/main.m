@@ -19,7 +19,7 @@
 @interface ToDoApp : NSObject
 
 -(void)displayLists:(NSMutableArray*)displayLists;
--(NSArray *)displayLists;
+-(NSMutableArray *)displayLists;
 
 -(void)addList:(NSMutableArray*)addList;
 -(NSArray *)addList;
@@ -64,17 +64,25 @@
 
 //*************** IMPLEM TO DO APP ***************
 //@implementation ToDoApp {
-//    NSMutableArray *_allLists;
-//}
-//
-//-(void)displayLists:(NSMutableArray*)displayLists {
-//    for(ToDoApp *something in _allLists) {
-//        printf("%s\n", [[something description] UTF8String]);
-//    }
+    NSMutableArray *_allLists;
 }
-//-(NSMutableArray *)displayLists {
-//    return _displayLists;
-//}
+
+
+//    ToDoItem *newItem = [[ToDoItem alloc]init];
+//    [newItem setItemName:newItemName];
+//    [_listOfItems addObject:newItemName];
+//    return newItemName;
+
+
+-(void)displayLists:(NSMutableArray*)displayLists {
+    
+        for(ToDoApp *something in _allLists) {
+        printf("%s\n", [[something description] UTF8String]);
+    }
+}
+-(NSMutableArray *)displayLists {
+    return _displayLists;
+}
 
 //-(void)addList:(NSMutableArray*)addList {
 //    
@@ -118,22 +126,25 @@
             printf("%s\n", [[listCompletedItems description] UTF8String]);
         }
 }
--(NSString*)addItem:(NSString*)newItemName {
-    scanf("%s", &newItemName);
-    
-//
-//    ToDoItem *newItem = [[ToDoItem alloc]init];
-//    [newItem setItemName:newItemName];
-//    [_listOfItems addObject:newItemName];
-//    return newItemName;
-}
 
 -(void)renameList:(NSString*) name{
     _listName = name;
 }
 
 
--(void)removeItem:(NSString*)remove;
+-(NSString*)addItem:(NSString*)newItemName {
+    scanf("%s", &newItemName);
+    
+}
+
+//
+//    ToDoItem *newItem = [[ToDoItem alloc]init];
+//    [newItem setItemName:newItemName];
+//    [_listOfItems addObject:newItemName];
+//    return newItemName;
+
+
+//-(void)removeItem:(NSString*)remove;
 //-(NSString *)remove;
 
 //-(void)markItem:(NSString*)mark {
@@ -172,10 +183,10 @@
 //***************** MAIN FUNCTION ***********************
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        ToDoItem *homework = [[ToDoItem alloc] init];
-        ToDoList *list1 = [[ToDoList alloc] init];
+        //        ToDoItem *homework = [[ToDoItem alloc] init];
+        ToDoList *userList1 = [[ToDoList alloc] init];
         
-        [homework setItemName:@"Study Git branching"];
+        //        [homework setItemName:@"Study Git branching"];
         
         int createListYesNo;
         printf("Would you like to create a to-do list? \n 0)No 1)Yes \n");
@@ -184,12 +195,19 @@ int main(int argc, const char * argv[]) {
         if (createListYesNo == 0) {
             return 0;
         } else {
-            NSString *listName;
+            NSString *userListName;
+            char listName[256];
             printf("Enter a name for your to-do list \n");
-            scanf("%s", &listName);
-            [list1 renameList:listName];
-            
+            scanf("%s", listName);
+            userListName = [NSString stringWithCString:listName encoding:NSUTF8StringEncoding];
+            [userList1 renameList:userListName];
         }
+        
+        NSMutableArray *allLists;
+        ToDoList *listsCreated = [[ToDoList alloc] init];
+        [listsCreated displayLists:allLists]
+        
+        printf("What would you like to do next?");
         
         
         
