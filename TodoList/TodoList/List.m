@@ -33,11 +33,7 @@
     NSLog(@"Enter a number to delete task");
     int j;
     scanf("%d", &j);
-    for (int i = 0; i < [_itemsInList count]; i++) {
-        if (i == j) {
-            [_itemsInList removeObjectAtIndex:j-1];
-        }
-    }
+    [_itemsInList removeObjectAtIndex:j-1];
 }
 
 -(void) printAllItemsInList {
@@ -120,16 +116,11 @@
         fpurge(stdin);
         
         if (i == 1) {
-            //print all items in list
             [self printAllItemsInList];
         }
         else if (i == 2) {
             //add new item
-            [self printAllItemsInList];
-            NSLog(@"Enter a list number to add an item to");
-            int i;
-            scanf("%d", &i);
-           // [self addItemToList:<#(Item *)#>:i];
+            //[self addItemToList:<#(Item *)#>:i];
         }
         else if (i == 3) {
             //rename item
@@ -142,10 +133,11 @@
         else if (i == 4) {
             //delete item
             [self printAllItemsInList];
-            NSLog(@"Enter an item number to delete it");
-            int i;
-            scanf("%d", &i);
+//            NSLog(@"Enter an item number to delete it");
+//            int i;
+//            scanf("%d", &i);
             [self deleteItemFromList];
+            NSLog(@"Deleted");
         }
         else if (i == 5) {
             //mark task done

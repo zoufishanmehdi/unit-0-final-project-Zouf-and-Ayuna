@@ -51,7 +51,7 @@
 -(void)printLists {
     for (int i = 0; i < [_lists count]; i++) {
         NSString *listName = [[_lists objectAtIndex:i] listName];
-        NSLog(@"%i %@", i+1, listName);
+        NSLog(@"%i) %@", i+1, listName);
     }
     NSLog(@"Enter a number to pick your to-do list");
     int j;
