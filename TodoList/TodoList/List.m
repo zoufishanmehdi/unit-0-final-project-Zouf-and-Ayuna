@@ -40,7 +40,7 @@
     for (int i = 0; i < [_itemsInList count]; i++) {
         NSString *itemName = [[_itemsInList objectAtIndex:i] itemName];
         int itemPriority = [[_itemsInList objectAtIndex:i] itemPriority];
-        NSLog(@"%i %@, priority %d", i+1, itemName, itemPriority);
+        NSLog(@"%i) %@, priority %d", i+1, itemName, itemPriority);
     }
 }
 
