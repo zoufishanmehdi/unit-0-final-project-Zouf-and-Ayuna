@@ -75,6 +75,14 @@
         
         if (userInputInteger == 1) {
             [self printLists];
+            int j;
+            scanf("%d", &j);
+            for (int i = 0; i < [_lists count]; i++) {
+                if (i == j -1 ) {
+                    [[_lists objectAtIndex:i] listOptions];
+                }
+            }
+
             break;
         }
         else if (userInputInteger == 2) {
