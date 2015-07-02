@@ -68,29 +68,17 @@
     }
 }
 
--(void) editItemName {
-    //print the list of items in this list 
-    NSLog(@"Enter a number to pick a task to edit"); 
-// first version of this code - doesn't work
-//    NSLog(@"Enter task description");
-//    char newItemName[256];
-//    fgets(newItemName, 256, stdin);
-//    NSString *editedItemName = [NSString stringWithUTF8String:newItemName];
-
-//2nd version:
-    //if scanf user input = edit task {
-//    int j;
-//    scanf("%d", &j);
-//    for (int i = 0; i < [_itemsInList count]; i++) {
-//        if (j == i) {
-//            NSString *itemName = [[_itemsInList objectAtIndex:j-1] itemName];
-//            NSLog(@"Enter task description");
-//            char newItemName[256];
-//            fgets(newItemName, 256, stdin);
-//            NSString *editedItemName = [NSString stringWithUTF8String:newItemName];
-//            itemName = editedItemName;
-//        }
-//    }
+-(void) renameItem {
+    [self printAllItemsInList];
+    NSLog(@"Enter a number to edit task");
+    int j;
+    scanf("%d", &j);
+    fpurge(stdin);
+    NSLog(@"Enter new task description");
+    char newTaskName[256];
+    fgets(newTaskName, 256, stdin);
+    NSString *editedTaskName = [NSString stringWithUTF8String:newTaskName];
+    [[_itemsInList objectAtIndex:j-1] setItem:editedTaskName];
 }
 
 -(void) addListDescription {
@@ -120,7 +108,6 @@
         }
         else if (i == 2) {
             //add new item
-            NSLog(@"Enter task description: ");
             Item *newToDoItem = [[Item alloc]init];
             [newToDoItem addItemDescription];
             [newToDoItem itemName];
@@ -128,11 +115,7 @@
         }
         else if (i == 3) {
             //rename item
-            [self printAllItemsInList];
-            NSLog(@"Enter a number to edit task");
-            int i;
-            scanf("%d", &i);
-            [self editItemName];
+            [self renameItem];
         }
         else if (i == 4) {
             //delete item

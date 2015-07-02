@@ -23,7 +23,7 @@
 -(void) deleteItemFromList;
 -(void) printAllItemsInList;
 -(void) markItemDone: (Item *) task;
-//-(void) editItemName;
+-(void) renameItem;
 -(void) listOptions;
 -(void) addListDescription;
 @end
