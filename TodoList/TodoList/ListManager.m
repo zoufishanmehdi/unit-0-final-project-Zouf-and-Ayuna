@@ -53,7 +53,14 @@
         NSString *listName = [[_lists objectAtIndex:i] listName];
         NSLog(@"%i %@", i+1, listName);
     }
-    //NSLog(@"Enter a number to pick your to-do list");
+    NSLog(@"Enter a number to pick your to-do list");
+    int j;
+    scanf("%d", &j);
+    for (int i = 0; i < [_lists count]; i++) {
+        if (i == j -1 ) {
+            [[_lists objectAtIndex:i] listOptions];
+        }
+    }
 }
 
 -(void) listManagerMenuOptions { 

@@ -44,7 +44,7 @@
     for (int i = 0; i < [_itemsInList count]; i++) {
         NSString *itemName = [[_itemsInList objectAtIndex:i] itemName];
         int itemPriority = [[_itemsInList objectAtIndex:i] itemPriority];
-        NSLog(@"%i %@, %d", i+1, itemName, itemPriority);
+        NSLog(@"%i %@, priority %d", i+1, itemName, itemPriority);
     }
 }
 
@@ -53,7 +53,7 @@
         if ([[_itemsInList objectAtIndex:i] markedDone] == value) {
             NSString *itemName = [[_itemsInList objectAtIndex:i] itemName];
             int itemPriority = [[_itemsInList objectAtIndex:i] itemPriority];
-            NSLog(@"%i %@, %d", i+1, itemName, itemPriority);
+            NSLog(@"%i %@, priority %d", i+1, itemName, itemPriority);
         }
     }
 }
@@ -123,7 +123,7 @@
             //print all items in list
             [self printAllItemsInList];
         }
-        if (i == 2) {
+        else if (i == 2) {
             //add new item
             [self printAllItemsInList];
             NSLog(@"Enter a list number to add an item to");
@@ -131,7 +131,7 @@
             scanf("%d", &i);
            // [self addItemToList:<#(Item *)#>:i];
         }
-        if (i == 3) {
+        else if (i == 3) {
             //rename item
             [self printAllItemsInList];
             NSLog(@"Enter an item number to rename it");
@@ -139,7 +139,7 @@
             scanf("%d", &i);
             [self editItemName];
         }
-        if (i == 4) {
+        else if (i == 4) {
             //delete item
             [self printAllItemsInList];
             NSLog(@"Enter an item number to delete it");
@@ -147,7 +147,7 @@
             scanf("%d", &i);
             [self deleteItemFromList];
         }
-        if (i == 5) {
+        else if (i == 5) {
             //mark task done
             [self printAllItemsInList];
             NSLog(@"Enter a task number to mark it completed");
@@ -155,14 +155,14 @@
             scanf("%d", &i);
             //[self markItemDone];
         }
-        if (i == 6) {
+        else if (i == 6) {
             [self printAllCompletedItems:NO];
         }
-        if (i == 7) {
+        else if (i == 7) {
             //print all items in list, versions: either excluding marked done items, or print all incl marked done items with a check sign
             [self printAllItemsInList];
         }
-        if (i == 0) {
+        else if (i == 0) {
             NSLog(@"It was good to see you! Bye!");
         }
         else {
